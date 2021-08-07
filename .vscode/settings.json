@@ -1,0 +1,24 @@
+{
+  "better-comments.highlightPlainText": true,
+  "editor.codeActionsOnSave": {
+    "addMissingImports": true,
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": "'Victor Mono', 'Inconsolata', 'Source Code Pro', Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+  "editor.linkedEditing": true,
+  "eslint.alwaysShowStatus": true,
+  "editor.scrollBeyondLastColumn": 2,
+  "editor.smoothScrolling": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "files.autoSave": "onFocusChange",
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "javascript.validate.enable": false,
+  "prettier.requireConfig": true
+}

@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "2gua.rainbow-brackets",
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "mgmcdermott.vscode-language-babel",
+    "oderwat.indent-rainbow",
+    "stkb.rewrap",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

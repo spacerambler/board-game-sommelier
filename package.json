@@ -3,13 +3,8 @@
     "node": ">=14.7.3"
   },
   "name": "board-game-sommelier",
-  "config": {
-    "port":"4444"
-  },
   "description": "A board game party planning application",
-  "private": true,
   "main": "server.js",
-  "type": "module",
   "scripts": {
     "start": "nodemon -I --watch app",
     "seed": "node seeds/seed.js"

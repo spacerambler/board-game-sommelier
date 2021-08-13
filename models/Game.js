@@ -18,8 +18,9 @@ Game.init(
     image: {},
     mechanics: {
       type: DataTypes.ARRAY,
-      },
     },
+  },
+  {
     sequelize,
     timestamps: false,
     freezeTableName: true,

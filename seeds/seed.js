@@ -1,4 +1,4 @@
-const seedMechanics = require("./mechanicData.json");
+const seedMechanics = require("./mechanicData");
 const seedGames = require("./gameData.json");
 const seedPlayers = require("./playerData.json");
 

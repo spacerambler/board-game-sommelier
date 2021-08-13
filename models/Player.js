@@ -20,12 +20,13 @@ Player.init(
       allowNull: false,
     },
   },
-  sequelize,
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: "player",
-}
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "player",
+  }
 );
 
 module.exports = Player;

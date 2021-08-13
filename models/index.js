@@ -4,25 +4,24 @@ const Mechanics = require("./Mechanics");
 const Player = require("./Player");
 
 Game.hasMany(Mechanics, {
-  foreignKey: 'mechanics_id',
-  onDelete: 'CASCADE',
+  foreignKey: "mechanics_id",
+  onDelete: "CASCADE",
 });
 
 Mechanics.hasMany(Game, {
-  foreignKey: 'game_id',
-  onDelete: 'CASCADE',
+  foreignKey: "game_id",
+  onDelete: "CASCADE",
 });
 
 Player.hasMany(Mechanics, {
-  foreignKey: 'player_id',
-  onDelete: 'CASCADE',
+  foreignKey: "player_id",
+  onDelete: "CASCADE",
 });
 
 Mechanics.hasMany(Player, {
-  foreignKey: 'mechanics_id'
-  onDelete: 'CASCADE',
+  foreignKey: "mechanics_id",
+  onDelete: "CASCADE",
 });
-
 
 module.exports = {
   User,

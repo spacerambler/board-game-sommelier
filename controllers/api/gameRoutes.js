@@ -1,3 +1,4 @@
+// eslint-disable-next-line new-cap
 const router = require("express").Router();
 const { Game, Player, Mechanics, User } = require("../../models");
 
@@ -5,7 +6,7 @@ const { Game, Player, Mechanics, User } = require("../../models");
 router.get("/", (req, res) => {
   //   // find all products
   Game.findAll({
-    include: [Player, Mechanics, User],
+    // include: [Player, Mechanics, User],
   }).then((game) => res.json(game));
 });
 
@@ -18,7 +19,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [Player, Mechanics, User],
+    include: [Mechanics, User],
   }).then((product) => res.json(product));
 });
 

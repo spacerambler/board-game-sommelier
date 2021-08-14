@@ -1,20 +1,21 @@
 /* eslint-disable new-cap */
 const router = require("express").Router();
-const { Player, Mechanics } = require("../../models");
+const { Player, Mechanics, PlayerMechanic } = require("../../models");
 
-// get all players, find all include associated user data
+// get all players
 router.get("/", async (req, res) => {
   try {
     const playerData = await Player.findAll({
       include: [
         {
-          model: Mechanics,
-          attributes: ["mechanics_name"],
+          model: PlayerMechanic,
+          attributes: ["mechanic_id"],
         },
       ],
     });
     res.status(200).json(playerData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

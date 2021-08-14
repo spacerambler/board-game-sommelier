@@ -26,6 +26,25 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   Game.create(req.body).then((newGame) => res.json(newGame));
 });
+
 // put in order to edit game
+router.put("/:id", (req, res) => {
+  // update a category by its `id` value
+  Game.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((updateGame) => res.json(updateGame));
+});
 
 // delete function
+router.delete("/:id", (req, res) => {
+  // delete a category by its `id` value
+  Game.findOne({
+    where: {
+      id: req.params.id,
+    },
+  }).then((game) => res.json(game));
+});
+
+module.exports = router;

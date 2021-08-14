@@ -15,17 +15,18 @@ Player.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    mechanics: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+    // mechanic: {
+    //   type: DataTypes.STRING,
+    //   allowNull: false,
+    // },
   },
-  sequelize,
-  timestamps: false,
-  freezeTableName: true,
-  underscored: true,
-  modelName: "player",
-}
+  {
+    sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: "player",
+  }
 );
 
 module.exports = Player;

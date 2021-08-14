@@ -1,6 +1,8 @@
-const seedMechanics = require("./mechanicData.json");
-const seedGames = require("./gameData.json");
-const seedPlayers = require("./playerData.json");
+const seedMechanics = require("./mechanicData.js");
+const seedGames = require("./gameData.js");
+const seedPlayers = require("./playerData.js");
+const seedPlayerMechanic = require("./playerMechanicData.js");
+const seedGameMechanic = require("./gameMechanicData.js");
 
 const sequelize = require("../config/connection");
 
@@ -16,6 +18,12 @@ const seedDatabase = async () => {
 
   await seedPlayers();
   console.log("\n----- PLAYERS SEEDED -----\n");
+
+  await seedPlayerMechanic();
+  console.log("\n----- PLAYER MECHANICS SEEDED -----\n");
+
+  await seedGameMechanic();
+  console.log("\n----- GAME MECHANICS SEEDED -----\n");
 
   process.exit(0);
 };

@@ -15,10 +15,9 @@ Game.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    image: {},
-    mechanics: {
-      type: DataTypes.ARRAY,
-    },
+    // mechanic: {
+    //   type: DataTypes.STRING,
+    // },
   },
   {
     sequelize,

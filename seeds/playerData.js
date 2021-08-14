@@ -3,11 +3,11 @@ const { Player } = require("../models");
 const playerData = [
   {
     name: "Mike",
-    mechanics: ["Cooperative", "Legacy"],
+    mechanic: ["Cooperative", "Legacy"],
   },
   {
     name: "November",
-    mechanics: ["Cooperative", "Dexterity"],
+    mechanic: ["Cooperative", "Dexterity"],
   },
 ];
 

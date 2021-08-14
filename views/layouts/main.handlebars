@@ -4,33 +4,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Board Game Somelier</title>
+  <title>Board Game Sommelier</title>
 </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Board Game Somelier</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
+<body class="flex flex-col justify-center items-center">
+  <header class="">
+    <h1 class="text-bold text-2xl">
+      <a href="/">Board Game Sommelier</a>
+    </h1>
+    <nav class="flex flex-row justify-between">
+      <div class="gap-4">
+        <a href="/" class="underline">Search</a>
+        <a href="/players" class="underline">Players</a>
+        <a href="/games" class="underline">Games</a>
+        <a href="/mechanics" class="underline">Mechanics</a>
+      </div>
+      <!-- Conditionally render login or logout links -->
+      <div>
+      {{#if logged_in}}
+      <a href="/profile" class="underline">profile</a> |
+      <a href="/profile" class="underline" id="logout">logout</a>
+      {{else}}
+      <a href="/login" class="underline">login</a>
+      {{/if}}
+      </div>
+    </nav>
+  </header>
+  <main class="">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
 
-    </footer>
-  </div>
+  <footer>
+  </footer>
+
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

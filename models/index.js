@@ -1,31 +1,43 @@
 const User = require("./User");
 const Game = require("./Game");
-const Mechanics = require("./Mechanics");
 const Player = require("./Player");
+const Mechanic = require("./Mechanic");
+const PlayerMechanic = require("./PlayerMechanic");
+const GameMechanic = require("./GameMechanic");
 
-Game.hasMany(Mechanics, {
-  foreignKey: "mechanics_id",
-  onDelete: "CASCADE",
+Game.belongsToMany(Mechanic, {
+  through: {
+    model: GameMechanic,
+    foreignKey: "game_id",
+  },
 });
 
-Mechanics.hasMany(Game, {
-  foreignKey: "game_id",
-  onDelete: "CASCADE",
+Mechanic.belongsToMany(Game, {
+  through: {
+    model: GameMechanic,
+    foreignKey: "mechanic_id",
+  },
 });
 
-Player.hasMany(Mechanics, {
-  foreignKey: "player_id",
-  onDelete: "CASCADE",
+Player.belongsToMany(Mechanic, {
+  through: {
+    model: PlayerMechanic,
+    foreignKey: "player_id",
+  },
 });
 
-Mechanics.hasMany(Player, {
-  foreignKey: "mechanics_id",
-  onDelete: "CASCADE",
+Mechanic.belongsToMany(Player, {
+  through: {
+    model: PlayerMechanic,
+    foreignKey: "mechanic_id",
+  },
 });
 
 module.exports = {
   User,
-  Mechanics,
+  Mechanic,
   Game,
   Player,
+  GameMechanic,
+  PlayerMechanic,
 };

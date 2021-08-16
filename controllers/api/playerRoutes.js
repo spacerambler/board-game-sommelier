@@ -1,18 +1,11 @@
-/* eslint-disable new-cap */
+// eslint-disable-next-line new-cap
 const router = require("express").Router();
-const { Player, Mechanics, PlayerMechanic } = require("../../models");
+const { Player, PlayerMechanic, Mechanic } = require("../../models");
 
 // get all players
 router.get("/", async (req, res) => {
   try {
-    const playerData = await Player.findAll({
-      include: [
-        {
-          model: PlayerMechanic,
-          attributes: ["mechanic_id"],
-        },
-      ],
-    });
+    const playerData = await Player.findAll();
     res.status(200).json(playerData);
   } catch (err) {
     console.log(err);
@@ -26,8 +19,9 @@ router.get("/:id", async (req, res) => {
     const playerData = await Player.findByPk(req.params.id, {
       include: [
         {
-          model: Mechanics,
-          attributes: ["mechanics_name"],
+          model: Mechanic,
+          through: PlayerMechanic,
+          // as: "nonsense",
         },
       ],
     });
@@ -37,6 +31,7 @@ router.get("/:id", async (req, res) => {
 
     res.status(200).json(playerData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });

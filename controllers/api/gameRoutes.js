@@ -1,6 +1,6 @@
 // eslint-disable-next-line new-cap
 const router = require("express").Router();
-const { Game, Player, Mechanics, User } = require("../../models");
+const { Game, Mechanic } = require("../../models");
 
 // get  all
 router.get("/", (req, res) => {
@@ -19,7 +19,7 @@ router.get("/:id", (req, res) => {
     where: {
       id: req.params.id,
     },
-    include: [Mechanics, User],
+    include: [Mechanic],
   }).then((product) => res.json(product));
 });
 
@@ -31,7 +31,7 @@ router.post("/", (req, res) => {
 // put in order to edit game
 router.put("/:id", (req, res) => {
   // update a category by its `id` value
-  Game.findOne({
+  Game.update(req.body, {
     where: {
       id: req.params.id,
     },
@@ -41,7 +41,7 @@ router.put("/:id", (req, res) => {
 // delete function
 router.delete("/:id", (req, res) => {
   // delete a category by its `id` value
-  Game.findOne({
+  Game.destroy({
     where: {
       id: req.params.id,
     },

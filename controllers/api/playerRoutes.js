@@ -46,4 +46,37 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.put("/:id", async (req, res) => {
+  const playerData = await Player.update(
+    {
+      name: req.body.name,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  );
+  return res.json(playerData);
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const playerData = await Player.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!playerData) {
+      res.status(404).json({ message: "No player found with this id" });
+      return;
+    }
+
+    res.status(200).json(playerData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;

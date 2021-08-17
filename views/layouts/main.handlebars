@@ -4,33 +4,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
   <title>Board Game Sommelier</title>
 </head>
 
 <body class="flex flex-col justify-center items-center w-full">
-  <header class="flex flex-col justify-center items-center w-full bg-green-500">
-    <h1 class="self-center text-bold text-2xl">
-      <a href="/">Board Game Sommelier</a>
-    </h1>
-    <nav class="flex flex-row justify-between">
-      <div class="gap-4">
+  <header class="flex flex-col justify-center items-center w-full pb-4 gap-2 bg-blue-400">
+    <div class="flex flex-row justify-center items-center md:w-3/4 lg:w-1/2 relative">
+      <img src="./images/hero.png" alt="game pieces in a wine glass" class="self-center w-max z-0">
+      <h1 class="justify-center items-center font-bold text-4xl md:text-6xl lg:text-7xl z-10 absolute right-10 md:left-2/5 lg:left-5/12 leading-normal md:leading-relaxed lg:leading-loose"><a href="/">Board<br>Game<br>Sommelier</a></h1>
+    </div>
+    <nav class="flex flex-row justify-between w-11/12 md:w-3/4 lg:w-1/2">
+      <div class="flex flex-row gap-2">
         <a href="/" class="underline">Search</a>
         <a href="/players" class="underline">Players</a>
         <a href="/games" class="underline">Games</a>
         <a href="/mechanics" class="underline">Mechanics</a>
       </div>
       <!-- Conditionally render login or logout links -->
-      <div>
-      {{#if logged_in}}
-      <a href="/profile" class="underline">profile</a> |
-      <a href="/profile" class="underline" id="logout">logout</a>
-      {{else}}
-      <a href="/login" class="underline">login</a>
-      {{/if}}
+      <div class="flex flex-row gap-2">
+        {{#if logged_in}}
+          <a href="/profile" class="underline">Profile</a> |
+          <a href="/" class="underline" id="logout">Logout</a>
+        {{else}}
+          <a href="/login" class="underline">Login</a>
+        {{/if}}
       </div>
     </nav>
   </header>
-  <main class="">
+  <main class="flex flex-col justify-center items-center w-11/12">
     <!-- Render the sub layout -->
     {{{ body }}}
   </main>

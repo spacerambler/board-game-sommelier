@@ -1,0 +1,15 @@
+<section class="flex flex-col justify-center items-center my-8 w-11/12" id="gamesOptions">
+	<h2 class="self-center font-bold text-2xl">Games</h2>
+	{{#if gamesData}}
+		<div class="flex flex-col md:flex-row flex-wrap justify-center items-center w-full py-4">
+			{{#each gamesData as |game| }}
+				<div class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/3 flex-none gap-2">
+					<p class="font-bold">{{game.name}}</p>
+					<a href="/game-edit/{{game.id}}" class="underline text-sm" id="edit">Edit</a>
+					<a href="/delete" class="underline text-sm" id="delete">Del</a>
+				</div> 
+			{{/each}}
+		</div>
+		
+	{{/if}}
+</section>

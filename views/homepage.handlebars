@@ -1,0 +1,33 @@
+<section class="flex flex-col justify-center items-center my-8 w-full" id="searchOptions">
+	<h2 class="self-center font-bold text-2xl">Players Attending</h2>
+	<p class="text-sm">(select the players who will be attending)</p>
+
+	{{#if playersData}}
+	<form action="submit" class="flex flex-col flex-wrap w-11/12">
+		<div class="flex flex-row justify-start items-center w-full">
+			{{#each playersData as |player| }}
+				<div class="flex flex-row justify-start items-center w-1/2 gap-2">
+					<input type="checkbox" name="player{{player.id}}" id="player{{player.id}}" class="flex flex-row flex-wrap w-min">
+					<label for="mechanic{{player.id}}">{{player.name}}</label>
+				</div>
+			{{/each}}
+		</div>
+		<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="search">Search</button>
+	</form>
+	{{/if}}
+</section>
+
+
+<section class="flex flex-col justify-center items-center my-8 w-4/5" id="searchResults">
+	<h2 class="self-center font-bold text-2xl">Suggested Games</h2>
+	<p class="text-sm">(search results will display here)</p>
+	<br>
+	<p class="text-red-400">(suggested games will display here)</p>
+	<div class="flex flex-col justify-center items-center gap-4">
+		{{#each suggestedGames as |game| }}
+			<div>
+				{{game.name}}
+			</div>
+		{{/each}}
+	</div>
+</section>

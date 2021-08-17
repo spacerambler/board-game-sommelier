@@ -15,10 +15,6 @@ Player.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // mechanic: {
-    //   type: DataTypes.STRING,
-    //   allowNull: false,
-    // },
   },
   {
     sequelize,

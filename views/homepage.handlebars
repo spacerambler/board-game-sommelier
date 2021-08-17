@@ -3,7 +3,7 @@
 	<p class="text-sm">(select the players who will be attending)</p>
 
 	{{#if playersData}}
-	<form action="submit" class="flex flex-col flex-wrap w-11/12">
+	<form action="submit" class="flex flex-col flex-wrap w-11/12 my-4">
 		<div class="flex flex-row justify-start items-center w-full">
 			{{#each playersData as |player| }}
 				<div class="flex flex-row justify-start items-center w-1/2 gap-2">
@@ -12,12 +12,14 @@
 				</div>
 			{{/each}}
 		</div>
-		<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="search">Search</button>
+		<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="mainSearch">Search</button>
 	</form>
+	{{else}}
+	<p>No players exist</p>
 	{{/if}}
 </section>
 
-
+{{#if results}}
 <section class="flex flex-col justify-center items-center my-8 w-4/5" id="searchResults">
 	<h2 class="self-center font-bold text-2xl">Suggested Games</h2>
 	<p class="text-sm">(search results will display here)</p>
@@ -31,3 +33,4 @@
 		{{/each}}
 	</div>
 </section>
+{{/if}}

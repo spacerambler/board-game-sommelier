@@ -1,14 +1,16 @@
-<section class="flex flex-col justify-center items-center my-8 w-11/12" id="gamesOptions">
-	{{#if gamesData}}
-		<h2 class="self-center font-bold text-2xl">{{game.name}}</h2>
-		<form action="submit" class="flex flex-row flex-wrap">
-		<h2 class="self-center font-bold text-2xl">{{game.name}}</h2>
-		<form class="flex flex-col md:flex-row flex-wrap justify-center items-center w-full py-4">
-			{{#each gamesData as |game| }}
+<section class="flex flex-col justify-center items-center my-8 w-11/12" id="gameEdit">
+	{{#if games}}
+	<h2 class="self-center font-bold text-2xl">{{game.name}}</h2>
+		<form action="submit" class="flex flex-row flex-wrap justify-center items-start w-full my-4">
+			{{#each mechanicsData as |mechanic| }}
+				<div class="flex flex-row md:flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none gap-2">
+				<input type="checkbox" name="mechanic{{mechanic.id}}" id="mechanic{{mechanic.id}}" class="flex w-min flex-none mt-1">
 				<label for="mechanic{{mechanic.id}}">{{mechanic.name}}</label>
-				<input type="checkbox" name="mechanic{{mechanic.id}}" id="mechanic{{mechanic.id}}" class="flex flex-row flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none">
+				</div>
 			{{/each}}
-			<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="search">Update Game</button>
+			<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min py-1 px-2 self-center mt-4 w-max" id="game-edit">Update Game</button>
 		</form>
+		{{else}}
+		<p>This game doesn't exist.</p>
 	{{/if}}
 </section>

@@ -1,17 +1,7 @@
 // eslint-disable-next-line new-cap
 const router = require("express").Router();
 const { Player, PlayerMechanic, Mechanic } = require("../../models");
-
-// get all players
-router.get("/", async (req, res) => {
-  try {
-    const playerData = await Player.findAll();
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
+const withAuth = require("../../utils/auth.js");
 
 // find one player by 'id' value
 router.get("/:id", async (req, res) => {
@@ -36,8 +26,8 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// create a new player
-router.post("/", async (req, res) => {
+// create a new player, withAuth
+router.post("/", withAuth, async (req, res) => {
   try {
     const playerData = await Player.create(req.body);
     res.status(200).json(playerData);
@@ -46,7 +36,8 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put("/:id", async (req, res) => {
+// Updating a player, withAuth
+router.put("/:id", withAuth, async (req, res) => {
   const playerData = await Player.update(
     {
       name: req.body.name,
@@ -60,7 +51,8 @@ router.put("/:id", async (req, res) => {
   return res.json(playerData);
 });
 
-router.delete("/:id", async (req, res) => {
+// Delete a player, with Auth
+router.delete("/:id", withAuth, async (req, res) => {
   try {
     const playerData = await Player.destroy({
       where: {

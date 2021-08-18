@@ -1,15 +1,14 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
       href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
       rel="stylesheet"
     />
-  <title>Board Game Sommelier</title>
-</head>
+    <title>Board Game Sommelier</title>
+  </head>
 
 <body class="flex flex-col justify-center items-center w-full">
   <header class="flex flex-col justify-center items-center w-full pb-4 gap-2 bg-blue-400">
@@ -23,33 +22,43 @@
         <a href="/players" class="underline">Players</a>
         <a href="/games" class="underline">Games</a>
         <a href="/mechanics" class="underline">Mechanics</a>
-      </div>
-      <!-- Conditionally render login or logout links -->
-      <div class="flex flex-row gap-2">
-        {{#if logged_in}}
-          <a href="/profile" class="underline">Profile</a> |
-          <a href="/" class="underline" id="logout">Logout</a>
-        {{else}}
-          <a href="/login" class="underline">Login</a>
-        {{/if}}
-      </div>
-    </nav>
-  </header>
-  <main class="flex flex-col justify-center items-center w-11/12">
-    <!-- Render the sub layout -->
-    {{{ body }}}
-  </main>
 
-  <footer>
-  </footer>
+      </div>
+      <nav class="flex flex-row justify-between w-11/12 md:w-3/4 lg:w-1/2">
+        <div class="flex flex-row gap-2">
+          <a href="/" class="underline">Search</a>
+          <a href="/players" class="underline">Players</a>
+          <a href="/games" class="underline">Games</a>
+          <a href="/mechanics" class="underline">Mechanics</a>
+        </div>
+        <!-- Conditionally render login or logout links -->
+        <div class="flex flex-row gap-2">
+          {{#if logged_in}}
+            <a href="/profile" class="underline">Profile</a>
+            |
+            <a href="/" class="underline" id="logout">Logout</a>
+          {{else}}
+            <a href="/login" class="underline">Login</a>
+          {{/if}}
+        </div>
+      </nav>
+    </header>
+    <main class="flex flex-col justify-center items-center w-11/12">
+      <!-- Render the sub layout -->
+      {{{body}}}
+    </main>
+
+    <footer>
+    </footer>
 
   
   {{!-- <script src="/js/games.js"></script> --}}
 
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/js/logout.js"></script>
-  {{/if}}
-</body>
+
+    <!-- Render script for logged in users only -->
+    {{#if logged_in}}
+      <script src="/js/logout.js"></script>
+    {{/if}}
+  </body>
 
 </html>

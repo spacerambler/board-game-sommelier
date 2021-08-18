@@ -1,0 +1,38 @@
+<section class="flex flex-col justify-center items-center mt-8 w-11/12 gap-8">
+
+  <div id="login" class="flex flex-col justify-center items-center p-2 mt-4 w-4/5 md:2/5 border-blue-400 border-2 bg-blue-200 rounded-lg">
+    <h2 class="font-bold">Login</h2>
+    <form class="login-form flex flex-col justify-center items-center gap-2">
+      <div class="flex flex-col justify-center items-center">
+        <label for="email-login" class="font-bold self-start">email:</label>
+        <input class="form-input" type="text" id="email-login" />
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <label for="password-login" class="font-bold self-start">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <button class="border-2 bg-blue-400 rounded-lg px-2 py-1 self-end" type="submit">login</button>
+    </form>
+  </div>
+  <p> -- or --</p>
+  <div id="signup" class="flex flex-col justify-center items-center p-2 w-4/5 md:2/5 border-blue-400 border-2 bg-blue-200 rounded-lg">
+    <h2 class="self-center font-bold">Signup</h2>
+    <form class="signup-form flex flex-col justify-center items-center gap-2">
+      <div class="flex flex-col justify-center items-center">
+        <label for="name-signup" class="font-bold self-start">name:</label>
+        <input class="form-input" type="text" id="name-signup" />
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <label for="email-signup" class="font-bold self-start">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="flex flex-col justify-center items-center">
+        <label for="password-signup" class="font-bold self-start">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+        <button class="border-2 bg-blue-400 rounded-lg px-2 py-1 self-end" type="submit">signup</button>
+    </form>
+  </div>
+</section>
+
+<script src="./js/login.js"></script>

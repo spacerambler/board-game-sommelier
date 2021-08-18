@@ -51,10 +51,6 @@ router.get("/mechanics", async (req, res) => {
   }
 });
 
-router.get("/login", (req, res) => {
-  res.render("login");
-});
-
 router.use((req, res) => {
   res.status(404).end();
 });

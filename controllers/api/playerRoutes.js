@@ -1,18 +1,11 @@
-/* eslint-disable new-cap */
+// eslint-disable-next-line new-cap
 const router = require("express").Router();
-const { Player, Mechanics, PlayerMechanic } = require("../../models");
+const { Player, PlayerMechanic, Mechanic } = require("../../models");
 
 // get all players
 router.get("/", async (req, res) => {
   try {
-    const playerData = await Player.findAll({
-      include: [
-        {
-          model: PlayerMechanic,
-          attributes: ["mechanic_id"],
-        },
-      ],
-    });
+    const playerData = await Player.findAll();
     res.status(200).json(playerData);
   } catch (err) {
     console.log(err);
@@ -26,8 +19,9 @@ router.get("/:id", async (req, res) => {
     const playerData = await Player.findByPk(req.params.id, {
       include: [
         {
-          model: Mechanics,
-          attributes: ["mechanics_name"],
+          model: Mechanic,
+          through: PlayerMechanic,
+          // as: "nonsense",
         },
       ],
     });
@@ -37,6 +31,7 @@ router.get("/:id", async (req, res) => {
 
     res.status(200).json(playerData);
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
@@ -48,6 +43,39 @@ router.post("/", async (req, res) => {
     res.status(200).json(playerData);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  const playerData = await Player.update(
+    {
+      name: req.body.name,
+    },
+    {
+      where: {
+        id: req.params.id,
+      },
+    }
+  );
+  return res.json(playerData);
+});
+
+router.delete("/:id", async (req, res) => {
+  try {
+    const playerData = await Player.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!playerData) {
+      res.status(404).json({ message: "No player found with this id" });
+      return;
+    }
+
+    res.status(200).json(playerData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 

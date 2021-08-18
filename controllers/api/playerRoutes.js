@@ -3,17 +3,6 @@ const router = require("express").Router();
 const { Player, PlayerMechanic, Mechanic } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 
-// get all players
-router.get("/", async (req, res) => {
-  try {
-    const playerData = await Player.findAll();
-    res.status(200).json(playerData);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
-});
-
 // find one player by 'id' value
 router.get("/:id", async (req, res) => {
   try {

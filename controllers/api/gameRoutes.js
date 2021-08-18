@@ -3,14 +3,6 @@ const router = require("express").Router();
 const { Game, Mechanic } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 
-// get  all
-router.get("/", (req, res) => {
-  //   // find all products
-  Game.findAll({
-    // include: [Player, Mechanics, User],
-  }).then((game) => res.json(game));
-});
-
 // get  one
 router.get("/:id", (req, res) => {
   // find one category by its `id` value

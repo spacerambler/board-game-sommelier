@@ -6,8 +6,10 @@
 			{{#each gamesData as |game| }}
 				<div class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/4 flex-none gap-2">
 					<p class="font-bold">{{game.name}}</p>
-					<a href="/game-edit/{{game.id}}" class="underline" id="edit">Edit</a>
-					<a href="/delete" class="underline" id="delete">Delete</a>
+					{{#if logged_in}}
+						<a href="/game-edit/{{game.id}}" class="underline" id="edit">Edit</a>
+						<a href="/delete" class="underline" id="delete">Delete</a>
+					{{/if}}
 				</div> 
 			{{/each}}
 		</div>

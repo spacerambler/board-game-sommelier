@@ -8,7 +8,7 @@ router.use("/api", apiRoutes);
 //   res.render("homepage");
 // });
 
-router.get("*", async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     let playersData = await Player.findAll();
     playersData = playersData.map((player) => player.get({ plain: true }));

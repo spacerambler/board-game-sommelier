@@ -6,8 +6,8 @@
 	<form action="submit" class="flex flex-col flex-wrap w-11/12 my-4">
 		<div class="flex flex-row justify-start items-center w-full">
 			{{#each playersData as |player| }}
-				<div class="flex flex-row justify-start items-center w-1/2 gap-2">
-					<input type="checkbox" name="player{{player.id}}" id="player{{player.id}}" class="flex w-full md:w-1/4 lg:w-1/4 flex-none">
+				<div class="flex flex-row justify-start items-center w-full md:w-1/4 lg:w-1/4 gap-2">
+					<input type="checkbox" name="player{{player.id}}" id="player{{player.id}}" class="flex flex-row flex-wrap w-min">
 					<label for="mechanic{{player.id}}">{{player.name}}</label>
 				</div>
 			{{/each}}

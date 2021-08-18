@@ -24,18 +24,9 @@
         <a href="/mechanics" class="underline">Mechanics</a>
 
       </div>
-      <nav class="flex flex-row justify-between w-11/12 md:w-3/4 lg:w-1/2">
-        <div class="flex flex-row gap-2">
-          <a href="/" class="underline">Search</a>
-          <a href="/players" class="underline">Players</a>
-          <a href="/games" class="underline">Games</a>
-          <a href="/mechanics" class="underline">Mechanics</a>
-        </div>
         <!-- Conditionally render login or logout links -->
         <div class="flex flex-row gap-2">
           {{#if logged_in}}
-            <a href="/profile" class="underline">Profile</a>
-            |
             <a href="/" class="underline" id="logout">Logout</a>
           {{else}}
             <a href="/login" class="underline">Login</a>

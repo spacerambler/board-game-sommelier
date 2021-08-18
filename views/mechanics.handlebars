@@ -1,0 +1,13 @@
+<section class="flex flex-col justify-center items-center my-8 w-11/12" id="mechanicsOptions">
+	<h2 class="self-center font-bold text-2xl">Mechanics</h2>
+
+	{{#if mechanicsData}}
+		<div class="flex flex-col md:flex-row flex-wrap justify-start items-start w-full py-4">
+			{{#each mechanicsData as |mechanic| }}
+				<div class="flex w-full md:w-1/4 lg:w-1/4 flex-none">
+					{{mechanic.name}}
+				</div> 
+			{{/each}}
+		</div>
+	{{/if}}
+</section>

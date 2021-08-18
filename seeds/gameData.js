@@ -6,7 +6,7 @@ const gameData = [
     image: "",
   },
   {
-    name: "DC Comics Deck Building Game",
+    name: "DC Comics Deck Builder",
     image: "",
   },
   {

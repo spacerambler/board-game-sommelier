@@ -4,33 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Board Game Somelier</title>
+  <link
+      href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  <title>Board Game Sommelier</title>
 </head>
 
-<body>
-  <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-      <h1>
-        <a href="/">Board Game Somelier</a>
-      </h1>
-      <nav>
-        <!-- Conditionally render login or logout links -->
+<body class="flex flex-col justify-center items-center w-full">
+  <header class="flex flex-col justify-center items-center w-full pb-4 gap-2 bg-blue-400">
+    <div class="flex flex-row justify-center items-center md:w-3/4 lg:w-1/2 relative">
+      <img src="/images/hero.png" alt="game pieces in a wine glass" class="self-center w-max z-0">
+      <h1 class="justify-center items-center font-bold text-4xl md:text-6xl lg:text-7xl z-10 absolute right-10 md:left-2/5 lg:left-1/2 leading-normal md:leading-relaxed lg:leading-loose"><a href="/">Board<br>Game<br>Sommelier</a></h1>
+    </div>
+    <nav class="flex flex-row justify-between w-11/12 md:w-3/4 lg:w-1/2">
+      <div class="flex flex-row gap-2">
+        <a href="/" class="underline">Search</a>
+        <a href="/players" class="underline">Players</a>
+        <a href="/games" class="underline">Games</a>
+        <a href="/mechanics" class="underline">Mechanics</a>
+      </div>
+      <!-- Conditionally render login or logout links -->
+      <div class="flex flex-row gap-2">
         {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
+          <a href="/profile" class="underline">Profile</a> |
+          <a href="/" class="underline" id="logout">Logout</a>
         {{else}}
-        <a href="/login">login</a>
+          <a href="/login" class="underline">Login</a>
         {{/if}}
-      </nav>
-    </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
-      {{{ body }}}
-    </main>
-    <footer>
+      </div>
+    </nav>
+  </header>
+  <main class="flex flex-col justify-center items-center w-11/12">
+    <!-- Render the sub layout -->
+    {{{ body }}}
+  </main>
 
-    </footer>
-  </div>
+  <footer>
+  </footer>
+
+  
+  <script src="/js/games.js"></script>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}

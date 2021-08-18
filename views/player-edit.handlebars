@@ -1,0 +1,16 @@
+<section class="flex flex-col justify-center items-center my-8 w-11/12" id="playerEdit">
+	{{#if player}}
+	<h2 class="self-center font-bold text-2xl">{{player.name}}</h2>
+		<form action="submit" class="flex flex-row flex-wrap justify-center items-start w-full my-4">
+			{{#each mechanicsData as |mechanic| }}
+				<div class="flex flex-row md:flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none gap-2">
+				<input type="checkbox" name="mechanic{{mechanic.id}}" id="mechanic{{mechanic.id}}" class="flex w-min flex-none mt-1">
+				<label for="mechanic{{mechanic.id}}">{{mechanic.name}}</label>
+				</div>
+			{{/each}}
+			<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min py-1 px-2 self-center mt-4 w-max" id="player-edit">Update Player</button>
+		</form>
+		{{else}}
+		<p>This player doesn't exist.</p>
+	{{/if}}
+</section>

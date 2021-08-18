@@ -3,7 +3,7 @@ const apiRoutes = require("./api");
 
 router.use("/api", apiRoutes);
 
-router.use((req, res) => {
+router.use("*", (req, res) => {
   res.render("homepage");
 });
 

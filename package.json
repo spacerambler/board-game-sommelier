@@ -7,7 +7,7 @@
   "main": "server.js",
   "scripts": {
     "start-dev": "nodemon -I --watch app",
-    "start": "node server.js",
+    "start": "npm run seed && node server.js",
     "seed": "node seeds/seed.js"
   },
   "dependencies": {

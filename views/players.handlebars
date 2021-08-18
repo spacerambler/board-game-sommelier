@@ -6,8 +6,10 @@
 			{{#each playersData as |player| }}
 				<div class="flex flex-row flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none gap-2">
 					<p class="font-bold">{{player.name}}</p>
+					{{#if logged_in}}
 					<a href="/player-edit/{{player.id}}" class="underline" id="edit">Edit</a>
 					<a href="/delete" class="underline" id="delete">Delete</a>
+					{{/if}}
 				</div> 
 			{{/each}}
 		</div>

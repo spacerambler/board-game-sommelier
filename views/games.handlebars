@@ -1,27 +1,19 @@
-<section
-  class="flex flex-col justify-center items-center my-8 w-11/12"
-  id="gamesOptions"
->
-  <h2 class="self-center font-bold text-2xl">Games</h2>
-  <button
-    type="submit"
-    class="border-2 bg-gray-400 rounded-xl w-1/2 pt-1 pb-1 pl-2 pr-2 self-center mt-4"
-    id="addNewGame"
-  >Add New Game</button>
-  {{#if gamesData}}
-    <div
-      class="flex flex-col md:flex-row flex-wrap justify-start items-center w-full py-4"
-    >
-      {{#each gamesData as |game|}}
-        <div
-          class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/4 flex-none gap-2"
-        >
-          <p class="font-bold">{{game.name}}</p>
-          <a href="/game-edit/{{game.id}}" class="underline" id="edit">Edit</a>
-          <a href="/delete" class="underline" id="delete">Delete</a>
-        </div>
-      {{/each}}
-    </div>
+<section class="flex flex-col justify-center items-center my-8 w-11/12" id="gamesOptions">
+	<h2 class="self-center font-bold text-2xl">Games</h2>
+	<button type="submit" class="border-2 bg-gray-400 rounded-xl w-1/2 pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="addNewGame">Add New Game</button>
+	{{#if gamesData}}
+		<div class="flex flex-col md:flex-row flex-wrap justify-start items-center w-full py-4">
+			{{#each gamesData as |game| }}
+				<div class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/4 flex-none gap-2">
+					<p class="font-bold">{{game.name}}</p>
+					{{#if logged_in}}
+						<a href="/game-edit/{{game.id}}" class="underline" id="edit">Edit</a>
+						<a href="/delete" class="underline" id="delete">Delete</a>
+					{{/if}}
+				</div> 
+			{{/each}}
+		</div>
+		
+	{{/if}}
 
-  {{/if}}
 </section>

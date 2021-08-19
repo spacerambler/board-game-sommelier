@@ -1,3 +1,4 @@
+/* global document, fetch */
 const logout = async () => {
   const response = await fetch("/api/logout", {
     method: "POST",

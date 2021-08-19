@@ -3,6 +3,7 @@ const seedGames = require("./gameData.js");
 const seedPlayers = require("./playerData.js");
 const seedPlayerMechanic = require("./playerMechanicData.js");
 const seedGameMechanic = require("./gameMechanicData.js");
+const seedUser = require("./userData.js");
 
 const sequelize = require("../config/connection");
 
@@ -24,6 +25,9 @@ const seedDatabase = async () => {
 
   await seedGameMechanic();
   console.log("\n----- GAME MECHANICS SEEDED -----\n");
+
+  await seedUser();
+  console.log("\n----- USER SEEDED -----\n");
 
   process.exit(0);
 };

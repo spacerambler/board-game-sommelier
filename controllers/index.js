@@ -4,10 +4,6 @@ const { Game, Player, Mechanic } = require("../models");
 
 router.use("/api", apiRoutes);
 
-// router.use("*", (req, res) => {
-//   res.render("homepage");
-// });
-
 router.get("/", async (req, res) => {
   try {
     let playersData = await Player.findAll();

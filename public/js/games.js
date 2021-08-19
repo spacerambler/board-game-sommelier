@@ -1,7 +1,7 @@
 const formElem = document.querySelector("#attPlayerForm");
 
 const mainSearch = (event) => {
-  event.preventDefault();
+  // event.preventDefault();
 
   const attendingPlayers = [];
 

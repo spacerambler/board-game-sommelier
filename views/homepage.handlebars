@@ -3,16 +3,16 @@
 	<p class="text-sm">(select the players who will be attending)</p>
 
 	{{#if playersData}}
-	<form action="submit" class="flex flex-col flex-wrap w-11/12 my-4">
+	<form action"#" method="POST" class="flex flex-col flex-wrap w-11/12 my-4" id="attPlayerForm">
 		<div class="flex flex-row justify-start items-center w-full">
 			{{#each playersData as |player| }}
 				<div class="flex flex-row justify-start items-center w-full md:w-1/4 lg:w-1/4 gap-2">
-					<input type="checkbox" name="player{{player.id}}" id="player{{player.id}}" class="flex flex-row flex-wrap w-min">
+					<input type="checkbox" name="{{player.id}}" id="player{{player.id}}" class="flex flex-row flex-wrap w-min">
 					<label for="mechanic{{player.id}}">{{player.name}}</label>
 				</div>
 			{{/each}}
 		</div>
-		<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="mainSearch">Search</button>
+		<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min pt-1 pb-1 pl-2 pr-2 self-center mt-4" id="mainSearchButton">Search</button>
 	</form>
 	{{else}}
 	<p>No players exist</p>

@@ -6,7 +6,8 @@
   "description": "A board game party planning application",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon -I --watch app",
+    "start-dev": "nodemon -I --watch app",
+    "start": "node server.js",
     "seed": "node seeds/seed.js"
   },
   "dependencies": {

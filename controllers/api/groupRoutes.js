@@ -55,7 +55,6 @@ router.post("/", async (req, res) => {
     allGames.forEach(async (game) => {
       gameMechs = [];
 
-      let checkedGame;
       gameMechs = await GameMechanic.findAll({
         where: {
           game_id: game,
@@ -64,7 +63,7 @@ router.post("/", async (req, res) => {
       collisions = [];
 
       // CHECKING FOR COLLISIONS
-      gameMechs.forEach(async (mech) => {
+      gameMechs.forEach((mech) => {
         isLiked = true;
         const checkedGame = mech.dataValues.mechanic_id;
         console.log("IN FOREACH", checkedGame);
@@ -78,9 +77,8 @@ router.post("/", async (req, res) => {
       console.log("COLLISIONS", collisions);
       console.log("COLLISIONS Len", collisions.length);
 
-      const t = 0;
       let f = 0;
-      for (i = 0; i < collisions.length; i++) {
+      for (let i = 0; i < collisions.length; i++) {
         // let addGame = true;
         if (collisions[i] !== true) {
           f++;
@@ -92,7 +90,7 @@ router.post("/", async (req, res) => {
       }
 
       console.log("RESULTS", results);
-      // res.render("homepage", results);
+      res.status(200).json(results);
     });
   } catch (err) {
     res.status(500).json(err);

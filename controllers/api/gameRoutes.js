@@ -32,13 +32,6 @@ router.get("/:id", async (req, res) => {
     res.status(500).json(err);
   }
 });
-//   Game.findOne({
-//     where: {
-//       id: req.params.id,
-//     },
-//     include: [Mechanic],
-//   }).then((product) => res.json(product));
-// });
 
 // post to create new game
 router.post("/", withAuth, (req, res) => {

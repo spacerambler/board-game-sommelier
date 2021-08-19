@@ -3,6 +3,23 @@ const router = require("express").Router();
 const { Player, PlayerMechanic, Mechanic } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 
+const playerMechanics = [];
+
+// CREATE NEW POST
+router.get("/new-player", (req, res) => {
+  res.render("new-player");
+});
+
+// create a new player, withAuth
+router.post("/new-player", async (req, res) => {
+  try {
+    const playerData = await Player.create(req.body);
+    res.status(200).json(playerData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 // find one player by 'id' value
 router.get("/:id", async (req, res) => {
   try {
@@ -20,26 +37,23 @@ router.get("/:id", async (req, res) => {
         },
       ],
     });
+    // console.log(playerData.mechanics);
+    const playerMechanicData = playerData.mechanics;
+    playerMechanicData.forEach(async (mech) => {
+      const m = mech.dataValues.id;
+      playerMechanics.push(m);
+    });
+
     if (!playerData) {
       res.status(404).json({ message: "No player found with this id" });
     }
 
-    console.log(playerData);
-    res.render("player-edit", { playerData, mechanicsData });
+    console.log(playerMechanics);
+    res.render("player-edit", { playerData, mechanicsData, playerMechanics });
     // res.status(200).json(playerData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
-  }
-});
-
-// create a new player, withAuth
-router.post("/", withAuth, async (req, res) => {
-  try {
-    const playerData = await Player.create(req.body);
-    res.status(200).json(playerData);
-  } catch (err) {
-    res.status(400).json(err);
   }
 });
 

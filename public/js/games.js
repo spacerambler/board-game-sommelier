@@ -1,7 +1,7 @@
 const formElem = document.querySelector("#attPlayerForm");
 
 const mainSearch = (event) => {
-  // event.preventDefault();
+  event.preventDefault();
 
   const attendingPlayers = [];
 
@@ -24,7 +24,7 @@ const mainSearch = (event) => {
     },
   })
     .then((res) => res.json())
-    .then((data) => console.log(data))
+    .then((data) => console.log("GAMESJS", data))
     .catch((error) => console.log("error"));
 };
 

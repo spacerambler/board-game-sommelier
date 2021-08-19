@@ -5,7 +5,7 @@
   <h2 class="self-center font-bold text-2xl">Games</h2>
   <button
     type="submit"
-    class="border-2 bg-gray-400 rounded-xl w-1/2 pt-1 pb-1 pl-2 pr-2 self-center mt-4"
+    class="border-2 bg-gray-400 rounded-xl w-max pt-1 pb-1 pl-2 pr-2 self-center mt-4"
     id="addNewGame"
   >Add New Game</button>
   {{#if gamesData}}
@@ -17,7 +17,7 @@
           class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/4 flex-none gap-2"
         >
           <p class="font-bold">{{game.name}}</p>
-          {{#if logged_in}}
+          {{#if loggedIn}}
             <a
               href="/api/game-edit/{{game.id}}"
               class="underline"

@@ -6,6 +6,11 @@ const withAuth = require("../../utils/auth.js");
 // find one player by 'id' value
 router.get("/:id", async (req, res) => {
   try {
+    let mechanicsData = await Mechanic.findAll();
+    mechanicsData = mechanicsData.map((mechanic) =>
+      mechanic.get({ plain: true })
+    );
+
     const playerData = await Player.findByPk(req.params.id, {
       include: [
         {
@@ -19,7 +24,9 @@ router.get("/:id", async (req, res) => {
       res.status(404).json({ message: "No player found with this id" });
     }
 
-    res.status(200).json(playerData);
+    console.log(playerData);
+    res.render("player-edit", { playerData, mechanicsData });
+    // res.status(200).json(playerData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

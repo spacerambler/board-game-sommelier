@@ -1,20 +1,44 @@
 // eslint-disable-next-line new-cap
 const router = require("express").Router();
-const { Game, Mechanic } = require("../../models");
+const { Game, GameMechanic, Mechanic } = require("../../models");
 const withAuth = require("../../utils/auth.js");
 
 // get  one
-router.get("/:id", (req, res) => {
-  // find one category by its `id` value
-  // // be sure to include its associated Products
+router.get("/:id", async (req, res) => {
+  try {
+    let mechanicsData = await Mechanic.findAll();
+    mechanicsData = mechanicsData.map((mechanic) =>
+      mechanic.get({ plain: true })
+    );
 
-  Game.findOne({
-    where: {
-      id: req.params.id,
-    },
-    include: [Mechanic],
-  }).then((product) => res.json(product));
+    const gameData = await Game.findByPk(req.params.id, {
+      include: [
+        {
+          model: Mechanic,
+          through: GameMechanic,
+          // as: "nonsense",
+        },
+      ],
+    });
+    if (!gameData) {
+      res.status(404).json({ message: "No game found with this id" });
+    }
+
+    console.log(gameData);
+    res.render("game-edit", { gameData, mechanicsData });
+    // res.status(200).json(playerData);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
+//   Game.findOne({
+//     where: {
+//       id: req.params.id,
+//     },
+//     include: [Mechanic],
+//   }).then((product) => res.json(product));
+// });
 
 // post to create new game
 router.post("/", withAuth, (req, res) => {

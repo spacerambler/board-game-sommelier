@@ -1,16 +1,38 @@
-<section class="flex flex-col justify-center items-center my-8 w-11/12" id="gameEdit">
-	{{#if games}}
-	<h2 class="self-center font-bold text-2xl">{{game.name}}</h2>
-		<form action="submit" class="flex flex-row flex-wrap justify-center items-start w-full my-4">
-			{{#each mechanicsData as |mechanic| }}
-				<div class="flex flex-row md:flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none gap-2">
-				<input type="checkbox" name="mechanic{{mechanic.id}}" id="mechanic{{mechanic.id}}" class="flex w-min flex-none mt-1">
-				<label for="mechanic{{mechanic.id}}">{{mechanic.name}}</label>
-				</div>
-			{{/each}}
-			<button type="submit" class="border-2 bg-gray-400 rounded-xl w-min py-1 px-2 self-center mt-4 w-max" id="game-edit">Update Game</button>
-		</form>
-		{{else}}
-		<p>This game doesn't exist.</p>
-	{{/if}}
+<section
+  class="flex flex-col justify-center items-center my-8 w-11/12"
+  id="gameEdit"
+>
+
+  {{#if gameData}}
+    <h2 class="self-center font-bold text-2xl">{{gameData.dataValues.name}}</h2>
+    <form
+      action="submit"
+      class="flex flex-row flex-wrap justify-start items-center w-full my-4"
+    >
+      <div class="flex flex-row flex-wrap">
+        {{#each mechanicsData as |mechanic|}}
+          <div
+            class="flex flex-row justify-start items-start md:flex-wrap w-4/5 md:w-1/2 lg:w-1/5 flex-none gap-2"
+          >
+            <input
+              type="checkbox"
+              name="mechanic{{mechanic.id}}"
+              id="mechanic{{mechanic.id}}"
+              class="flex w-min flex-none mt-1"
+            />
+            <label for="mechanic{{mechanic.id}}">{{mechanic.name}}</label>
+          </div>
+        {{/each}}
+      </div>
+
+      <div class="flex flex-row justify-center w-full">
+        <button
+          type="submit"
+          class="border-2 bg-gray-400 rounded-xl w-min py-1 px-2 self-center mt-4 w-max"
+          id="game-edit"
+        >Update Game</button></div>
+    </form>
+  {{else}}
+    <p>This game doesn't exist.</p>
+  {{/if}}
 </section>

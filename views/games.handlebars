@@ -17,14 +17,10 @@
           class="flex flex-row flex-wrap w-full md:w-1/2 lg:w-1/4 flex-none gap-2"
         >
           <p class="font-bold">{{game.name}}</p>
-          {{#if loggedIn}}
-            <a
-              href="/api/game-edit/{{game.id}}"
-              class="underline"
-              id="edit"
-            >Edit</a>
-            <a href="/api/delete" class="underline" id="delete">Delete</a>
-          {{/if}}
+          {{!-- {{#if loggedIn}} --}}
+          <a href="/api/games/{{game.id}}" class="underline" id="edit">Edit</a>
+          <a href="/api/delete" class="underline" id="delete">Delete</a>
+          {{!-- {{/if}} --}}
         </div>
       {{/each}}
     </div>

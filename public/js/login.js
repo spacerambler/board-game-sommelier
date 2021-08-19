@@ -1,5 +1,3 @@
-document.querySelector("#login-form");
-
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -24,4 +22,6 @@ const loginFormHandler = async (event) => {
   }
 };
 
-document.addEventListener("submit", loginFormHandler);
+document
+  .querySelector("#login-form");
+  .addEventListener("submit", loginFormHandler);
